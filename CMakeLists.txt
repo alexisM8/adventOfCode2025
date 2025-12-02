@@ -31,6 +31,7 @@ endif()
 
 set(SRC_DIR     "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
+set(PUZZLE_INPUT "${CMAKE_CURRENT_SOURCE_DIR}/puzzle_input")
 
 # Helper to add DayXQ1 and DayXQ2 in one go
 function(add_aoc_day day_name)
@@ -43,6 +44,8 @@ function(add_aoc_day day_name)
       PRIVATE
         "${INCLUDE_DIR}"
     )
+    target_include_directories(${target} PRIVATE "${PUZZLE_INPUT}")
+    add_compile_definitions(PUZZLE_INPUT="${PUZZLE_INPUT}")
   endforeach()
 endfunction()
 
