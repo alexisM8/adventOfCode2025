@@ -51,7 +51,8 @@ endfunction()
 
 # List the days you’ve implemented
 foreach(day
-  DayOne
+  # DayOne
+  DayTwo
 )
   add_aoc_day(${day})
 endforeach()
