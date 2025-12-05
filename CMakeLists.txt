@@ -20,7 +20,7 @@ set(BUILD_STATIC FALSE CACHE BOOL "Set this to link external libraries staticall
 # More modern way to add warnings/flags per configuration
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   add_compile_options(
-    "$<$<CONFIG:Debug>:-Wall;-Wextra;-g>"
+    "$<$<CONFIG:Debug>:-Wall;-Wextra;-g;-gdwarf-4;-O0>"
     "$<$<CONFIG:Release>:-O3>"
   )
 endif()
@@ -53,7 +53,8 @@ endfunction()
 foreach(day
   # DayOne
   # DayTwo
-  DayThree
+  # DayThree
+  DayFour
 )
   add_aoc_day(${day})
 endforeach()

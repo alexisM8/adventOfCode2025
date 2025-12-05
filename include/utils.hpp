@@ -75,5 +75,6 @@ std::string read(std::string_view relative_path) {
   ss << input.rdbuf();
   return ss.str();
 }
+
 } // namespace utils
 } // namespace aoc
