@@ -17,7 +17,6 @@ endif()
 # Option example, keep if you actually use it somewhere
 set(BUILD_STATIC FALSE CACHE BOOL "Set this to link external libraries statically")
 
-# More modern way to add warnings/flags per configuration
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   add_compile_options(
     "$<$<CONFIG:Debug>:-Wall;-Wextra;-g;-gdwarf-4;-O0>"
@@ -49,13 +48,14 @@ function(add_aoc_day day_name)
   endforeach()
 endfunction()
 
-# List the days you’ve implemented
 foreach(day
   # DayOne
   # DayTwo
   # DayThree
   # DayFour
-  DayFive
+  # DayFive
+  # DaySix
+  DaySeven
 )
   add_aoc_day(${day})
 endforeach()
