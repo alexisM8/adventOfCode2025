@@ -52,10 +52,11 @@ foreach(day
   # DayOne
   # DayTwo
   # DayThree
-  # DayFour
+  # # DayFour
   # DayFive
   # DaySix
-  DaySeven
+  # DaySeven
+  DayEight
 )
   add_aoc_day(${day})
 endforeach()

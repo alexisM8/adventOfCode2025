@@ -9,8 +9,8 @@ int main(int argc, char **argv) {
   auto contents = read(puzzle_input);
   auto data = split(contents, "\n\n");
 
-  auto ranges = split(data.front(), "\n");
-  auto availible_ids = split(data.back(), "\n");
+  auto ranges = split(*data.begin(), "\n");
+  auto availible_ids = split(*--data.end(), "\n");
   std::set<unsigned long long> seen;
 
   for (auto &id : availible_ids) {
@@ -18,8 +18,8 @@ int main(int argc, char **argv) {
     unsigned long long ida = std::stoull(id);
     for (auto &range : ranges) {
       auto cases = split(range, "-");
-      unsigned long long lower = std::stoull(cases.front());
-      unsigned long long upper = std::stoull(cases.back());
+      unsigned long long lower = std::stoull(*cases.begin());
+      unsigned long long upper = std::stoull(*--cases.end());
 
       std::cout << "checking id " << ida << " againt range=" << range << "\n";
       if (ida >= lower && ida <= upper) {

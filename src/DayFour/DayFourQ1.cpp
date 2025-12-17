@@ -1,10 +1,10 @@
 #include "utils.hpp"
 #include <iostream>
 
-auto count_adjacent_neighbors(const std::vector<std::string> &data, int row,
+auto count_adjacent_neighbors(const aoc::utils::split_view &data, int row,
                               int column) -> int;
 
-auto solve(const std::vector<std::string> &data) -> int;
+auto solve(const aoc::utils::split_view &data) -> int;
 
 static constexpr const char *puzzle_input = "DayFour/day_four.txt";
 
@@ -18,11 +18,11 @@ int main(int argc, char **argv) {
   // 1527
 }
 
-auto solve(const std::vector<std::string> &data) -> int {
+auto solve(const aoc::utils::split_view &data) -> int {
   int count = 0;
   for (int row = 0; row < data.size(); row++) {
-    for (int column = 0; column < data.at(row).size(); column++) {
-      if (data.at(row).at(column) == '@') {
+    for (int column = 0; column < data[row].size(); column++) {
+      if (data[row][column] == '@') {
         int neighbors = count_adjacent_neighbors(data, row, column);
         if (neighbors < 4) {
           count++;
@@ -33,7 +33,7 @@ auto solve(const std::vector<std::string> &data) -> int {
   return count;
 }
 
-auto count_adjacent_neighbors(const std::vector<std::string> &data, int row,
+auto count_adjacent_neighbors(const aoc::utils::split_view &data, int row,
                               int column) -> int {
   int count = 0;
   for (int i = row - 1; i <= row + 1; i++) {
@@ -47,11 +47,11 @@ auto count_adjacent_neighbors(const std::vector<std::string> &data, int row,
       if (i < 0 || i >= static_cast<int>(data.size())) {
         continue;
       }
-      if (j < 0 || j >= static_cast<int>(data.at(i).size())) {
+      if (j < 0 || j >= static_cast<int>(data[i].size())) {
         continue;
       }
 
-      if (data.at(i).at(j) == '@') {
+      if (data[i][j] == '@') {
         count++;
       }
     }

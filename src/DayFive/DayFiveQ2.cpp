@@ -10,13 +10,13 @@ int main(int argc, char **argv) {
   auto contents = read(puzzle_input);
   auto data = split(contents, "\n\n");
 
-  auto ranges = split(data.front(), "\n");
+  auto ranges = split(*data.begin(), "\n");
   std::vector<std::pair<ull, ull>> intervals;
 
   for (auto &range : ranges) {
     auto cases = split(range, "-");
-    unsigned long long lower = std::stoull(cases.front());
-    unsigned long long upper = std::stoull(cases.back());
+    unsigned long long lower = std::stoull(*cases.begin());
+    unsigned long long upper = std::stoull(*--cases.end());
     intervals.emplace_back(lower, upper);
   }
 

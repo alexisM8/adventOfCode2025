@@ -12,8 +12,8 @@ int main(int argc, char **argv) {
   unsigned long long tally = 0;
   for (const auto &range : ranges) {
     auto values = split(range, "-");
-    auto start = std::stoll(values.front());
-    auto end = std::stoll(values.back());
+    auto start = std::stoll(*values.begin());
+    auto end = std::stoll(*--values.end());
     for (auto i = start; i <= end; i++) {
       auto val = std::to_string(i);
       if (val.size() % 2 == 0) {
